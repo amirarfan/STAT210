@@ -12,6 +12,7 @@ from statsmodels.formula.api import ols
 my_df = pd.read_csv("SiresData.csv", sep=";", header=0)
 mod = ols("Milk ~ C(Sire, Sum)", data=my_df).fit()
 anov = sm.stats.anova_lm(mod)
+print(anov)
 # print(mod.summary())
 
 # Confidence Interval for Variance
@@ -61,7 +62,7 @@ max_mean = 6518.15+152.97 - t_value*est_se
 est_se = math.sqrt(2*ms_e/8)
 T_test = ((6518.15+ 152.97) - (6518.15 - 192.40)) / est_se
 t_value = stats.t.ppf(0.975, 35)
-print(T_test > t_value)
+# print(T_test > t_value)
 # H_0 kan bli avvist på 5% signifikans
 
 
