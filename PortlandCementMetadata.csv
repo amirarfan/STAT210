@@ -1,0 +1,6 @@
+Data for the Poirtland Cement excample in 'Montgommery, D. 2019.  Design and Analysis of Experiments. 9th Edition, EMEA Edition. John Wiley & Sons UK ;;
+Data for a total of 20 samples of mortar of two different types, 'Modified' and 'Unmodified'. ;;
+Columns: ;;
+Name;Datatype;Explanation
+Modified;Real number;Bondstrength for modified mortar (in kgf/cm2)
+Unmodified;Real number;Bondstrength for unmodified mortar (in kgf/cm2)

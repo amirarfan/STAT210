@@ -1,0 +1,7 @@
+Data for exercise 6 (and 4) STAT210 - H20.;;
+Data for a total of 6 samples of piglet weight, for non-soya diet, and two different diets with different soya proteins.;;
+Columns: ;;
+Name;Datatype;Explanation
+NONS;Real number;Weight (kg) of piglets on diet without soya
+S1;Real number;Weight (kg) of piglets on soya diet type 1
+S2;Real number;Weight (kg) of piglets on soya diet type 2
