@@ -1,5 +1,5 @@
 import math
-
+import pingouin as pg
 import pandas as pd
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
@@ -24,14 +24,14 @@ print(se_tr)
 
 # d) Confidence Interval for Error Variance
 n = 8
-s2 = anov.sum_sq["Residual"]
+sse = anov.sum_sq["Residual"]
 df = 35
 alpha = 0.05
 
-upper =  s2 / stats.chi2.ppf(alpha / 2, df)
-lower =  s2 / stats.chi2.ppf(1 - alpha / 2, df)
+upper = sse / stats.chi2.ppf(alpha / 2, df)
+lower = sse / stats.chi2.ppf(1 - alpha / 2, df)
 
-# print(lower, upper)
+print(lower, upper)
 
 # Confidence interval for Mean
 n = 8
@@ -41,15 +41,18 @@ df = 35
 est_mean = mod.params[0]
 lower = est_mean - (stats.t.isf(alpha/2, 4)*math.sqrt(anov.mean_sq["C(Sire, Sum)"]/(a*n)))
 upper = est_mean + (stats.t.isf(alpha/2, 4)*math.sqrt(anov.mean_sq["C(Sire, Sum)"]/(a*n)))
-print(lower, upper)
+# print(lower, upper)
 
 #e) Intraclass Correlation
 corr = se_tr / (se_tr + anov.mean_sq["Residual"])
-print(corr)
+# print(corr)
 
-icc = pg.intraclass_corr(data=data, targets='Wine', raters='Judge',
-                         ratings='Scores').round(3)
+# Intrclass Confidence Interval
+L = 1/n * (((anov.mean_sq["C(Sire, Sum)"]/anov.mean_sq["Residual"])*(1/stats.f.isf(0.05, 4, 35))) - 1)
+U = 1/n * (((anov.mean_sq["C(Sire, Sum)"]/anov.mean_sq["Residual"])*(1/stats.f.isf(0.95, 4, 35))) - 1)
 
+lower = L/(1+L)
+upper = U/(1+U)
 
-
+# print(lower, upper)
 
