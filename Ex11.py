@@ -2,7 +2,7 @@ import math
 
 import pandas as pd
 import statsmodels.api as sm
-from statsmodels.formula.api import ols
+from statsmodels.formula.api import ols, mixedlm
 from scipy import stats
 from scipy.special import binom
 from statsmodels.stats.multicomp import pairwise_tukeyhsd, MultiComparison

@@ -54,5 +54,5 @@ U = 1/n * (((anov.mean_sq["C(Sire, Sum)"]/anov.mean_sq["Residual"])*(1/stats.f.i
 lower = L/(1+L)
 upper = U/(1+U)
 
-# print(lower, upper)
+print(lower, upper)
 
