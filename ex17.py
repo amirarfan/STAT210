@@ -80,5 +80,5 @@ mod = mixlm.lm(fml, data=R_df)
 Anov = mixlm.Anova_lmm(mod, data=R_df, type=StrVector("III"))
 mod = mixlm.lm(fml, data=R_df, REML=True)
 conf_int = lme_4.confint_merMod(mod, level=0.95)
-print(conf_int)
+print(conf_int) # Remark that these are for the deviations and not for variance, square them for the variance.
 
